@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "pagseguro_catcher"
   gem.homepage = "http://github.com/matiasleidemer/pagseguro_catcher"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A simple gem to parse PagSeguro transaction notification.}
+  gem.description = %Q{This gem provides a simple way to check and parse the PagSeguro transaction notification.}
   gem.email = "matiasleidemer@gmail.com"
   gem.authors = ["Matias H. Leidemer"]
   # dependencies defined in Gemfile

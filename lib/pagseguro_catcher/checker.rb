@@ -15,7 +15,7 @@ module PagseguroCatcher
       self.response = Hash.from_xml(HTTParty.get(url)) if force
       self.response ||= Hash.from_xml(HTTParty.get(url))
       if self.response
-        self.response.symbolize_keys!
+        self.response.recursive_symbolize_keys!
         PagseguroCatcher::Parser.new(self.response)
       end
     end
