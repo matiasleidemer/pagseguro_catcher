@@ -29,16 +29,26 @@ describe "Checker" do
       checker.check.should be_a(PagseguroCatcher::Parser)
     end
     
-    it "uses the specific url with the params on PagseguroCatcher module" do
-      checker.send(:url).should == url
-    end
-    
     it "assigns the response as hash with the Pagseguro server response" do
       checker.check
       checker.response.should be_a(Hash)
       checker.response[:transaction].should be_true
     end
     
+    it "overwrites the response if force is true" do
+      checker.response = { :foo => :bar }
+      checker.check
+      checker.response.should == { :foo => :bar }
+      
+      checker.check(true)
+      checker.response.should_not == { :foo => :bar }
+    end
+  end
+  
+  describe "#url" do
+    it "uses the specific url with the params on PagseguroCatcher module" do
+      checker.send(:url).should == url
+    end
   end
   
 end

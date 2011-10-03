@@ -24,5 +24,6 @@ module PagseguroCatcher
     def url
       "#{PagseguroCatcher.url}/#{self.receiver.code}?email=#{PagseguroCatcher.email}&token=#{PagseguroCatcher.token}"
     end
+    
   end
 end
