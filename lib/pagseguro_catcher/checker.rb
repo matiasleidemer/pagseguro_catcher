@@ -14,6 +14,7 @@ module PagseguroCatcher
     def check(force=false)
       self.response = HTTParty.get(url).body if force
       self.response ||= HTTParty.get(url).body
+      
       if self.response
         PagseguroCatcher::Transaction::Base.new(self.response)
       end

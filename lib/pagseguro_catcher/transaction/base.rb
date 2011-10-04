@@ -19,25 +19,31 @@ module PagseguroCatcher
       end
       
       def date
-        self.body[:date].to_datetime.change(:offset => "-0300")
+        self[:date].to_datetime.change(:offset => "-0300")
       end
-
+      
+      def last_event_date
+        self[:lastEventDate].to_datetime.change(:offset => "-0300")
+      end
+      
       def transaction_type
-        TRANSACTION_TYPES[self.body[:type].to_i]
+        TRANSACTION_TYPES[self[:type].to_i]
       end
 
       def transaction_status
-        TRANSACTION_STATUS[self.body[:status].to_i]
+        TRANSACTION_STATUS[self[:status].to_i]
       end
 
       def payment_method_type
-        PAYMENT_TYPES[self.body[:paymentMethod][:type].to_i]
+        PAYMENT_TYPES[self[:paymentMethod][:type].to_i]
       end
 
       def payment_method_code
-        PAYMENT_CODES[self.body[:paymentMethod][:code].to_i]
+        PAYMENT_CODES[self[:paymentMethod][:code].to_i]
       end
-            
+      
+      #TODO - method missing
+      
     end
     
   end

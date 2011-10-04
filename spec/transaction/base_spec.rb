@@ -31,6 +31,13 @@ describe "Transaction" do
     end
   end
   
+  describe "#last_even_date" do
+    it "returns the last event date response as a DateTime object" do
+      transaction.body[:lastEventDate] = "2011-10-04T15:48:59.000-03:00"
+      transaction.last_event_date.should == DateTime.new(2011, 10, 04, 15, 48, 59, "-03:00")
+    end
+  end
+  
   describe "#transaction_type" do
     it "returns the human value for the transaction type" do
       transaction.body[:type] = "1"

@@ -4,7 +4,8 @@
     <code>9E884542-81B3-4419-9A75-BCC6FB495EF1</code>  
     <reference>REF1234</reference>  
     <type>1</type>  
-    <status>3</status>  
+    <status>3</status>
+    <lastEventDate>2011-10-04T15:48:59.000-03:00</lastEventDate>
     <paymentMethod>  
         <type>1</type>  
         <code>101</code>  
