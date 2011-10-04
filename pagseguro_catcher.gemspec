@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Matias H. Leidemer"]
-  s.date = %q{2011-10-03}
+  s.date = %q{2011-10-04}
   s.description = %q{This gem provides a simple way to check and parse the PagSeguro transaction notification.}
   s.email = %q{matiasleidemer@gmail.com}
   s.extra_rdoc_files = [
@@ -27,12 +27,17 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/pagseguro_catcher.rb",
     "lib/pagseguro_catcher/checker.rb",
+    "lib/pagseguro_catcher/constants.rb",
     "lib/pagseguro_catcher/core_ext/Hash.rb",
     "lib/pagseguro_catcher/parser.rb",
+    "lib/pagseguro_catcher/parser/amount.rb",
+    "lib/pagseguro_catcher/parser/base.rb",
     "lib/pagseguro_catcher/receiver.rb",
+    "pagseguro_catcher.gemspec",
     "spec/checker_spec.rb",
     "spec/pagseguro_catcher_spec.rb",
-    "spec/parser_spec.rb",
+    "spec/parser/amount_spec.rb",
+    "spec/parser/base_spec.rb",
     "spec/receiver_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/return.xml"
