@@ -1,9 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "Parser" do
   
-  let(:xml)     { File.open(File.expand_path(File.dirname(__FILE__) + '/support/return.xml')).read }
-  let(:parser)  { PagseguroCatcher::Parser.new(xml) }
+  let(:xml)     { File.open(File.expand_path(File.dirname(__FILE__) + '/../support/return.xml')).read }
+  let(:parser)  { PagseguroCatcher::Parser::Base.new(xml) }
   
   describe ".initialize" do
     it "assigns the body as Hash with the passed XML" do

@@ -26,7 +26,7 @@ describe "Checker" do
   
   describe "#check" do
     it "creates a Parser from the Pagseguro server response" do
-      checker.check.should be_a(PagseguroCatcher::Parser)
+      checker.check.should be_a(PagseguroCatcher::Parser::Base)
     end
     
     it "assigns the response with the Pagseguro server response" do

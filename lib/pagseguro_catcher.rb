@@ -4,12 +4,12 @@
 require "active_support/core_ext"
 require "pagseguro_catcher/core_ext/Hash"
 require "pagseguro_catcher/constants"
+require "pagseguro_catcher/parser"
 
 module PagseguroCatcher
   autoload :Receiver, 'pagseguro_catcher/receiver'
   autoload :Checker, 'pagseguro_catcher/checker'
-  autoload :Parser, 'pagseguro_catcher/parser'
-  
+    
   class << self
     attr_accessor :token, :email, :url
     
