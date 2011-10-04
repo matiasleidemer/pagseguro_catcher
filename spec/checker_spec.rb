@@ -27,23 +27,20 @@ describe "Checker" do
   describe "#check" do
     it "creates a Parser from the Pagseguro server response" do
       checker.check.should be_a(PagseguroCatcher::Parser)
-      
-      puts checker.response.inspect
     end
     
-    it "assigns the response as hash with the Pagseguro server response" do
+    it "assigns the response with the Pagseguro server response" do
       checker.check
-      checker.response.should be_a(Hash)
-      checker.response[:transaction].should be_true
+      checker.response.should be_a(String)
     end
     
     it "overwrites the response if force is true" do
-      checker.response = { :foo => :bar }
+      checker.response = "<transaction></transaction>"
       checker.check
-      checker.response.should == { :foo => :bar }
+      checker.response.should == "<transaction></transaction>"
       
       checker.check(true)
-      checker.response.should_not == { :foo => :bar }
+      checker.response.should_not == "<transaction></transaction>"
     end
   end
   

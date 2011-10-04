@@ -1,5 +1,4 @@
 require "httparty"
-require "active_support/core_ext"
 
 module PagseguroCatcher
   class Checker
@@ -12,10 +11,9 @@ module PagseguroCatcher
     end
     
     def check(force=false)
-      self.response = Hash.from_xml(HTTParty.get(url)) if force
-      self.response ||= Hash.from_xml(HTTParty.get(url))
+      self.response = HTTParty.get(url).body if force
+      self.response ||= HTTParty.get(url).body
       if self.response
-        self.response.recursive_symbolize_keys!
         PagseguroCatcher::Parser.new(self.response)
       end
     end
