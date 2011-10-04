@@ -3,6 +3,7 @@
 
 require "active_support/core_ext"
 require "pagseguro_catcher/core_ext/Hash"
+require "pagseguro_catcher/constants"
 
 module PagseguroCatcher
   autoload :Receiver, 'pagseguro_catcher/receiver'
@@ -16,5 +17,6 @@ module PagseguroCatcher
       yield self
     end
   end
+  
   
 end

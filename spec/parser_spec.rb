@@ -32,4 +32,17 @@ describe "Parser" do
     end
   end
   
+  describe "#payment_method_type" do
+    it "return the human value for the payment method" do
+      parser.body[:paymentMethod][:type] = "1"
+      parser.payment_method_type.should == "Cartão de crédito"
+    end
+  end
+  
+  describe "#payment_method_code" do
+    it "return the human value for the payment method" do
+      parser.body[:paymentMethod][:code] = "101"
+      parser.payment_method_code.should == "Cartão de crédito Visa"
+    end
+  end
 end

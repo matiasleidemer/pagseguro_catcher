@@ -3,9 +3,6 @@ module PagseguroCatcher
   class Parser
     attr_accessor :body
     
-    TRANSACTION_TYPES  = { 1 => "Pagamento", 2 => "Transferência", 3 => "Adição de fundos", 4 => "Cobrança", 5 => "Bônus" }
-    TRANSACTION_STATUS = { 1 => "Aguardando pagamento", 2 => "Em análise", 3 => "Paga", 4 => "Disponível", 5 => "Em disputa", 6 => "Devolvida", 7 => "Cancelada" }
-
     def initialize(xml)
       self.body = Hash.from_xml(xml)["transaction"]
       self.body.recursive_symbolize_keys! if self.body
@@ -21,6 +18,14 @@ module PagseguroCatcher
     
     def transaction_status
       TRANSACTION_STATUS[self.body[:status].to_i]
+    end
+    
+    def payment_method_type
+      PAYMENT_TYPES[self.body[:paymentMethod][:type].to_i]
+    end
+    
+    def payment_method_code
+      PAYMENT_CODES[self.body[:paymentMethod][:code].to_i]
     end
     
   end
