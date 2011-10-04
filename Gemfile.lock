@@ -31,7 +31,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (>= 3.0.0)
+  activesupport
   bundler (~> 1.0.0)
   fakeweb
   httparty

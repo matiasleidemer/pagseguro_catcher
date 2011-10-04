@@ -7,7 +7,7 @@ source "http://rubygems.org"
 # Include everything needed to run rake, tests, features, etc.
 
 gem "httparty"
-gem "activesupport", ">= 3.0.0"
+gem "activesupport"
 gem "i18n"
 
 group :development do

@@ -4,10 +4,11 @@ module PagseguroCatcher
   class Checker
     include HTTParty
     
-    attr_accessor :receiver, :response
+    attr_accessor :code, :type, :response
 
-    def initialize(receiver)
-      self.receiver = receiver
+    def initialize(code, type)
+      self.code = code
+      self.type = type
     end
     
     def check(force=false)
@@ -20,7 +21,7 @@ module PagseguroCatcher
     
     private
     def url
-      "#{PagseguroCatcher.url}/#{self.receiver.code}?email=#{PagseguroCatcher.email}&token=#{PagseguroCatcher.token}"
+      "#{PagseguroCatcher.url}/#{self.code}?email=#{PagseguroCatcher.email}&token=#{PagseguroCatcher.token}"
     end
     
   end
