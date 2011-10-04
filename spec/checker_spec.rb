@@ -32,8 +32,8 @@ describe "Checker" do
   end
   
   describe "#check" do
-    it "creates a Parser from the Pagseguro server response" do
-      checker.check.should be_a(PagseguroCatcher::Parser::Base)
+    it "creates a Transaction from the Pagseguro server response" do
+      checker.check.should be_a(PagseguroCatcher::Transaction::Base)
     end
     
     it "assigns the response with the Pagseguro server response" do

@@ -4,10 +4,9 @@
 require "active_support/core_ext"
 require "pagseguro_catcher/core_ext/Hash"
 require "pagseguro_catcher/constants"
-require "pagseguro_catcher/parser"
+require "pagseguro_catcher/transaction"
 
 module PagseguroCatcher
-  autoload :Receiver, 'pagseguro_catcher/receiver'
   autoload :Checker, 'pagseguro_catcher/checker'
     
   class << self

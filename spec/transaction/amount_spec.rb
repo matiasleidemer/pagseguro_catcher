@@ -2,9 +2,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "Amount" do
   
-  let(:xml)     { File.open(File.expand_path(File.dirname(__FILE__) + '/../support/return.xml')).read }
-  let(:parser)  { PagseguroCatcher::Parser::Base.new(xml) }
-  let(:amount)  { PagseguroCatcher::Parser::Amount.new(parser.body) }
+  let(:xml)         { File.open(File.expand_path(File.dirname(__FILE__) + '/../support/return.xml')).read }
+  let(:transaction) { PagseguroCatcher::Transaction::Base.new(xml) }
+  let(:amount)      { PagseguroCatcher::Transaction::Amount.new(transaction.body) }
   
   describe ".initialize" do
     it "assigns the body" do

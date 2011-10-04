@@ -1,5 +1,5 @@
 module PagseguroCatcher
-  module Parser
+  module Transaction
     
     class Amount
       attr_accessor :body

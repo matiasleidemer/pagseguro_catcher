@@ -1,5 +1,5 @@
 module PagseguroCatcher
-  module Parser
+  module Transaction
     
     class Base
       attr_accessor :body
@@ -10,7 +10,7 @@ module PagseguroCatcher
       end
       
       def amount
-        @amount ||= PagseguroCatcher::Parser::Amount.new(self.body)
+        @amount ||= PagseguroCatcher::Transaction::Amount.new(self.body)
         @amount
       end
       
