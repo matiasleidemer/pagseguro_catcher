@@ -11,6 +11,13 @@ describe "Transaction" do
     end
   end
   
+  describe "#[]" do
+    it "returns the hash value of the body" do
+      transaction.body[:code] = "1234"
+      transaction[:code].should == "1234"
+    end
+  end
+  
   describe "#amount" do
     it "returns an Amount object" do
       transaction.amount.should be_a(PagseguroCatcher::Transaction::Amount)

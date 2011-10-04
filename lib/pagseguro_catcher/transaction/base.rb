@@ -14,6 +14,10 @@ module PagseguroCatcher
         @amount
       end
       
+      def [](param)
+        self.body[param.to_sym]
+      end
+      
       def date
         self.body[:date].to_datetime.change(:offset => "-0300")
       end
