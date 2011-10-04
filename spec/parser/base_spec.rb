@@ -11,6 +11,12 @@ describe "Parser" do
     end
   end
   
+  describe "#amount" do
+    it "returns an Amount object" do
+      parser.amount.should be_a(PagseguroCatcher::Parser::Amount)
+    end
+  end
+  
   describe "#date" do
     it "returns the date response as a DateTime object" do
       parser.body[:date] = "2011-02-10T16:13:41.000-03:00"
@@ -45,4 +51,5 @@ describe "Parser" do
       parser.payment_method_code.should == "Cartão de crédito Visa"
     end
   end
+  
 end

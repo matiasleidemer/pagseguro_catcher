@@ -8,7 +8,12 @@ module PagseguroCatcher
         self.body = Hash.from_xml(xml)["transaction"]
         self.body.recursive_symbolize_keys! if self.body
       end
-
+      
+      def amount
+        @amount ||= PagseguroCatcher::Parser::Amount.new(self.body)
+        @amount
+      end
+      
       def date
         self.body[:date].to_datetime.change(:offset => "-0300")
       end
@@ -28,7 +33,7 @@ module PagseguroCatcher
       def payment_method_code
         PAYMENT_CODES[self.body[:paymentMethod][:code].to_i]
       end
-
+            
     end
     
   end
