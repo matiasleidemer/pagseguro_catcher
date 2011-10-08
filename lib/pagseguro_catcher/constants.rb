@@ -1,3 +1,4 @@
+# encoding: utf-8
 module PagseguroCatcher
   #maybe YML?... this doesn't seem right...
   

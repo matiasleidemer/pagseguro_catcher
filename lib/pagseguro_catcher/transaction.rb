@@ -1,4 +1,3 @@
-# encoding: utf-8
 module PagseguroCatcher
   module Transaction
     autoload :Base, 'pagseguro_catcher/transaction/base'
