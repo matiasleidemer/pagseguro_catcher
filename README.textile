@@ -1,6 +1,10 @@
 h1. PagseguroCatcher
 
-!http://travis-ci.org/matiasleidemer/pagseguro_catcher.png!:http://travis-ci.org/matiasleidemer/pagseguro_catcher
+!https://secure.travis-ci.org/matiasleidemer/pagseguro_catcher.png!:http://travis-ci.org/#!/matiasleidemer/pagseguro_catcher
+
+h2. Soon
+
+I'll describe how to use this one, but it's easy :-)
 
 h2. Contributing to pagseguro_catcher
  
