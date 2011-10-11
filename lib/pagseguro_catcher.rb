@@ -8,14 +8,18 @@ require "pagseguro_catcher/transaction"
 
 module PagseguroCatcher
   autoload :Checker, 'pagseguro_catcher/checker'
-    
+  mattr_accessor :url
+  
+  self.url = "https://ws.pagseguro.uol.com.br/v2/transactions/notifications"
+  
   class << self
-    attr_accessor :token, :email, :url
+    attr_accessor :token, :email
     
     def configure
       yield self
     end
   end
+  
   
   
 end

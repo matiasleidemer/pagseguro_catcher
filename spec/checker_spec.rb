@@ -13,7 +13,6 @@ describe "Checker" do
     PagseguroCatcher.configure do |config|
       config.token = "1234"
       config.email = "john@doe.com"
-      config.url   = "https://ws.pagseguro.uol.com.br/v2/transactions/notifications"
     end
   end
   
