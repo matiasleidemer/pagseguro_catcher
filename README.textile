@@ -6,6 +6,22 @@ h2. Soon
 
 I'll describe how to use this one, but it's easy :-)
 
+h2. TODO
+
+h3. 0.1.0
+
+* parse correctly all the sections of the return (items, sender, shipping are missing);
+* implement a @method_missing@ in @::Transaction::Base@ to delegate to @#[]@
+
+h3. 0.2.0
+
+* implement a nice way to rescue the @::Checker.check@ method, when the request isn't successfull or the return is invalid
+
+h3. 0.3.0:
+
+* maybe some nice logs?
+
+
 h2. Contributing to pagseguro_catcher
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
