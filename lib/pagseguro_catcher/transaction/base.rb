@@ -42,7 +42,12 @@ module PagseguroCatcher
         PAYMENT_CODES[self[:paymentMethod][:code].to_i]
       end
       
-      #TODO - method missing
+      def method_missing(name, *args)
+        return self[name.to_sym] if self.body.has_key?(name.to_sym)
+        super
+      end
+      
+      #TODO - items, sender, shipping
       
     end
     

@@ -32,7 +32,7 @@ describe "Transaction" do
     end
   end
   
-  describe "#last_even_date" do
+  describe "#last_event_date" do
     it "returns the last event date response as a DateTime object" do
       transaction.body[:lastEventDate] = "2011-10-04T15:48:59.000-03:00"
       transaction.last_event_date.should == DateTime.new(2011, 10, 04, 15, 48, 59, "-03:00")
@@ -54,16 +54,28 @@ describe "Transaction" do
   end
   
   describe "#payment_method_type" do
-    it "return the human value for the payment method" do
+    it "returns the human value for the payment method" do
       transaction.body[:paymentMethod][:type] = "1"
       transaction.payment_method_type.should == "Cartão de crédito"
     end
   end
   
   describe "#payment_method_code" do
-    it "return the human value for the payment method" do
+    it "returns the human value for the payment method" do
       transaction.body[:paymentMethod][:code] = "101"
       transaction.payment_method_code.should == "Cartão de crédito Visa"
+    end
+  end
+  
+  describe "#method_missing" do
+    it "tries to run #[] with the method name" do
+      transaction.should_not respond_to :installmentCount
+      transaction.installmentCount.should == "1"
+    end
+    
+    it "raises exception if the parameter does not exist" do
+      transaction.should_not respond_to :non_existant_method
+      lambda { transaction.non_existant_method }.should raise_error(NoMethodError)
     end
   end
   
