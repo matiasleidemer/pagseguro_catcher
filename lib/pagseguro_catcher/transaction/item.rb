@@ -1,14 +1,14 @@
 module PagseguroCatcher
   module Transaction
     
-    class Sender < Transaction::Body
+    class Item < Transaction::Body
       
       def initialize(body)
         self.body = body[:sender]
       end
       
       def name
-        self[:name]
+        self[:name].utf8
       end
       
       def email

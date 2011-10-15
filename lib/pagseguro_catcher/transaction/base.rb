@@ -1,8 +1,7 @@
 module PagseguroCatcher
   module Transaction
     
-    class Base
-      attr_accessor :body
+    class Base < Transaction::Body
 
       def initialize(xml)
         self.body = Hash.from_xml(xml)["transaction"]
@@ -19,8 +18,12 @@ module PagseguroCatcher
         @sender
       end
       
-      def [](param)
-        self.body[param.to_sym]
+      def items
+        self[:items].each do |item|
+          @items << PagseguroCatcher::Transaction::Item.new(self.body)
+        end
+        
+        @items
       end
       
       def date
@@ -45,11 +48,6 @@ module PagseguroCatcher
 
       def payment_method_code
         PAYMENT_CODES[self[:paymentMethod][:code].to_i]
-      end
-      
-      def method_missing(name, *args)
-        return self[name.to_sym] if self.body.has_key?(name.to_sym)
-        super
       end
       
       #TODO - items, shipping

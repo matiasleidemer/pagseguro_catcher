@@ -1,7 +1,7 @@
 module PagseguroCatcher
   module Transaction
     
-    class Amount < Transaction::Base
+    class Amount < Transaction::Body
       
       def initialize(body)
         self.body = body

@@ -2,7 +2,8 @@
 # https://pagseguro.uol.com.br/v2/guia-de-integracao/api-de-notificacoes.html
 
 require "active_support/core_ext"
-require "pagseguro_catcher/core_ext/Hash"
+require "pagseguro_catcher/core_ext/hash"
+require "pagseguro_catcher/core_ext/string"
 require "pagseguro_catcher/constants"
 require "pagseguro_catcher/transaction"
 
