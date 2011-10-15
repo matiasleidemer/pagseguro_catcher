@@ -10,7 +10,6 @@ GEM
       multi_json
       multi_xml
     i18n (0.6.0)
-    iconv (0.1)
     jeweler (1.6.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
@@ -37,7 +36,6 @@ DEPENDENCIES
   fakeweb
   httparty
   i18n
-  iconv
   jeweler (~> 1.6.4)
   rcov
   rspec (~> 2.3.0)
