@@ -3,7 +3,7 @@
 
 require "active_support/core_ext"
 require "pagseguro_catcher/core_ext/Hash"
-require "pagseguro_catcher/core_ext/String"
+require "pagseguro_catcher/core_ext/string"
 require "pagseguro_catcher/constants"
 require "pagseguro_catcher/transaction"
 
