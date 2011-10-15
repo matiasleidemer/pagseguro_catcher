@@ -73,12 +73,6 @@ describe "Transaction" do
     end
   end
   
-  describe "#utf8" do
-    it "returns the string in utf8" do
-      pending
-    end
-  end
-  
   describe "#method_missing" do
     it "tries to run #[] with the method name" do
       transaction.should_not respond_to :installmentCount

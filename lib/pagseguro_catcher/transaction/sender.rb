@@ -8,7 +8,7 @@ module PagseguroCatcher
       end
       
       def name
-        utf8(self[:name])
+        self[:name].utf8
       end
       
       def email

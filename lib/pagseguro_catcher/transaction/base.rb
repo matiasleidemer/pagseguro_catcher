@@ -52,11 +52,7 @@ module PagseguroCatcher
         super
       end
       
-      def utf8(text)
-        Iconv.conv("ISO-8859-1", "UTF-8", text)
-      end
-      
-      #TODO - items, sender, shipping
+      #TODO - items, shipping
       
     end
     
