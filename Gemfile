@@ -9,6 +9,7 @@ source "http://rubygems.org"
 gem "httparty"
 gem "activesupport"
 gem "i18n"
+gem "iconv"
 
 group :development do
   gem "rspec", "~> 2.3.0"

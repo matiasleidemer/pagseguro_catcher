@@ -14,6 +14,11 @@ module PagseguroCatcher
         @amount
       end
       
+      def sender
+        @sender ||= PagseguroCatcher::Transaction::Sender.new(self.body)
+        @sender
+      end
+      
       def [](param)
         self.body[param.to_sym]
       end
@@ -45,6 +50,10 @@ module PagseguroCatcher
       def method_missing(name, *args)
         return self[name.to_sym] if self.body.has_key?(name.to_sym)
         super
+      end
+      
+      def utf8(text)
+        Iconv.conv("ISO-8859-1", "UTF-8", text)
       end
       
       #TODO - items, sender, shipping

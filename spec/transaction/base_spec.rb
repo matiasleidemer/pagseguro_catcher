@@ -25,6 +25,12 @@ describe "Transaction" do
     end
   end
   
+  describe "#sender" do
+    it "returns an Sender object" do
+      transaction.sender.should be_a(PagseguroCatcher::Transaction::Sender)
+    end
+  end
+  
   describe "#date" do
     it "returns the date response as a DateTime object" do
       transaction.body[:date] = "2011-02-10T16:13:41.000-03:00"
@@ -64,6 +70,12 @@ describe "Transaction" do
     it "returns the human value for the payment method" do
       transaction.body[:paymentMethod][:code] = "101"
       transaction.payment_method_code.should == "Cartão de crédito Visa"
+    end
+  end
+  
+  describe "#utf8" do
+    it "returns the string in utf8" do
+      pending
     end
   end
   

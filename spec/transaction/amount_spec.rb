@@ -14,38 +14,32 @@ describe "Amount" do
   
   describe "#gross" do
     it "returns the gross amount as a float" do
-      amount.body[:grossAmount] = "49900.00"
       amount.gross.should == 49900.00
     end
   end
   
   describe "#discount" do
     it "returns the discount amount as a float" do
-      amount.body[:discountAmount] = "900.00"
-      amount.discount.should == 900.00
+      amount.discount.should == 0.00
     end
   end
   
   describe "#fee" do
     it "returns the fee amount as a float" do
-      amount.body[:feeAmount] = "150.00"
-      amount.fee.should == 150.00
+      amount.fee.should == 0.00
     end
   end
 
   describe "#net" do
     it "returns the net amount as a float" do
-      amount.body[:netAmount] = "160.00"
-      amount.net.should == 160.00
+      amount.net.should == 49900.00
     end
   end
   
   describe "#extra" do
     it "returns the extra amount as a float" do
-      amount.body[:extraAmount] = "170.00"
-      amount.extra.should == 170.00
+      amount.extra.should == 0.00
     end
   end
-
   
 end

@@ -1,6 +1,6 @@
 # encoding: utf-8
 module PagseguroCatcher
-  #maybe YML?... this doesn't seem right...
+  XML_CHARSET = "ISO-8859-1"
   
   TRANSACTION_TYPES  = { 
     1 => "Pagamento", 
