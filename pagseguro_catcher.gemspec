@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pagseguro_catcher}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Matias H. Leidemer}]
-  s.date = %q{2011-10-11}
+  s.authors = ["Matias H. Leidemer"]
+  s.date = %q{2011-10-15}
   s.description = %q{This gem provides a simple way to check and parse the PagSeguro transaction notification.}
   s.email = %q{matiasleidemer@gmail.com}
   s.extra_rdoc_files = [
@@ -30,24 +30,30 @@ Gem::Specification.new do |s|
     "lib/pagseguro_catcher/checker.rb",
     "lib/pagseguro_catcher/constants.rb",
     "lib/pagseguro_catcher/core_ext/Hash.rb",
+    "lib/pagseguro_catcher/core_ext/string.rb",
     "lib/pagseguro_catcher/transaction.rb",
     "lib/pagseguro_catcher/transaction/amount.rb",
     "lib/pagseguro_catcher/transaction/base.rb",
+    "lib/pagseguro_catcher/transaction/item.rb",
+    "lib/pagseguro_catcher/transaction/sender.rb",
     "pagseguro_catcher.gemspec",
     "spec/checker_spec.rb",
     "spec/pagseguro_catcher_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/return.xml",
     "spec/transaction/amount_spec.rb",
-    "spec/transaction/base_spec.rb"
+    "spec/transaction/base_spec.rb",
+    "spec/transaction/item_spec.rb",
+    "spec/transaction/sender_spec.rb"
   ]
   s.homepage = %q{http://github.com/matiasleidemer/pagseguro_catcher}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{A simple gem to parse PagSeguro transaction notification.}
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
