@@ -31,6 +31,21 @@ describe "Transaction" do
     end
   end
   
+  describe "#items" do
+    it "returns an array of items objects" do
+      transaction.items.should be_a(Array)
+      transaction.items.first.should be_a(PagseguroCatcher::Transaction::Item)
+    end
+  end
+  
+  describe "#each_item" do
+    it "yields each item" do
+      transaction.each_item do |item|
+        item.should be_a(PagseguroCatcher::Transaction::Item)
+      end
+    end
+  end
+  
   describe "#date" do
     it "returns the date response as a DateTime object" do
       transaction.body[:date] = "2011-02-10T16:13:41.000-03:00"

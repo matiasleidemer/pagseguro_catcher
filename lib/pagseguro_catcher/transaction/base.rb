@@ -1,3 +1,4 @@
+#p = PagseguroCatcher::Transaction::Base.new(File.open('spec/support/return.xml').read)
 module PagseguroCatcher
   module Transaction
     
@@ -19,11 +20,17 @@ module PagseguroCatcher
       end
       
       def items
-        self[:items].each do |item|
-          @items << PagseguroCatcher::Transaction::Item.new(self.body)
+        @items = []
+        
+        self[:items][:item].each do |item|
+          @items << PagseguroCatcher::Transaction::Item.new(item)
         end
         
         @items
+      end
+      
+      def each_item
+        self.items.each { |item| yield item }
       end
       
       def date

@@ -9,7 +9,7 @@ module PagseguroCatcher
       end
       
       def method_missing(name, *args)
-        return self[name.to_sym] if self.body.has_key?(name.to_sym)
+        return self[name] if self.body.has_key?(name.to_sym)
         super
       end
       
@@ -18,5 +18,6 @@ module PagseguroCatcher
     autoload :Base, 'pagseguro_catcher/transaction/base'
     autoload :Amount, 'pagseguro_catcher/transaction/amount'
     autoload :Sender, 'pagseguro_catcher/transaction/sender'
+    autoload :Item, 'pagseguro_catcher/transaction/item'
   end
 end
