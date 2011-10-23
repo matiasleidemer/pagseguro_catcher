@@ -19,5 +19,6 @@ module PagseguroCatcher
     autoload :Amount, 'pagseguro_catcher/transaction/amount'
     autoload :Sender, 'pagseguro_catcher/transaction/sender'
     autoload :Item, 'pagseguro_catcher/transaction/item'
+    autoload :Shipping, 'pagseguro_catcher/transaction/shipping'
   end
 end

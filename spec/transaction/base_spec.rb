@@ -46,6 +46,12 @@ describe "Transaction" do
     end
   end
   
+  describe "#shipping" do
+    it "returns a Shipping object" do
+      transaction.shipping.should be_a(PagseguroCatcher::Transaction::Shipping)
+    end
+  end
+  
   describe "#date" do
     it "returns the date response as a DateTime object" do
       transaction.body[:date] = "2011-02-10T16:13:41.000-03:00"

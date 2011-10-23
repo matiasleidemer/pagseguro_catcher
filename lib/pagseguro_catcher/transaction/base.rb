@@ -19,6 +19,11 @@ module PagseguroCatcher
         @sender
       end
       
+      def shipping
+        @shipping ||= PagseguroCatcher::Transaction::Shipping.new(self.body)
+        @shipping
+      end
+      
       def items
         @items = []
         
@@ -32,7 +37,7 @@ module PagseguroCatcher
       def each_item
         self.items.each { |item| yield item }
       end
-      
+            
       def date
         self[:date].to_datetime.change(:offset => "-0300")
       end
