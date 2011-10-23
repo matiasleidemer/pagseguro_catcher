@@ -18,4 +18,9 @@ describe "Item" do
     end
   end
       
+  describe "#id" do
+    it "returns the item id as integer" do
+      item.id.should == 1
+    end
+  end
 end

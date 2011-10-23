@@ -7,6 +7,10 @@ module PagseguroCatcher
         self.body = body
       end
       
+      def id
+        self[:id].to_i
+      end
+      
       def amount
         self[:amount].to_f
       end
