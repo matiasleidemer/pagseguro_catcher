@@ -48,4 +48,10 @@ module PagseguroCatcher
     501	=> "Oi Paggo"
   }
   
+  SHIPPING_TYPES = {
+    1 => "Encomenda normal (PAC)",
+    2 => "SEDEX",
+    3	=> "Tipo de frete não especificado"
+  }
+  
 end
