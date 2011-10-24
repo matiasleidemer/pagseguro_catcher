@@ -2,19 +2,68 @@ h1. PagseguroCatcher
 
 !https://secure.travis-ci.org/matiasleidemer/pagseguro_catcher.png!:http://travis-ci.org/#!/matiasleidemer/pagseguro_catcher
 
-h2. Soon
+h2. About
 
-I'll describe how to use this one, but it's easy :-)
+This is a little gem that helps you parsing the return of the Pagseguro's transaction notification.
+You can find more info about the notification API "here":https://pagseguro.uol.com.br/v2/guia-de-integracao/api-de-notificacoes.html.
+
+h2. Usage
+
+The first thing you'll need to do is to "enable the Pagseguro's transaction notification":https://pagseguro.uol.com.br/integracao/notificacao-de-transacoes.jhtml. When you do that, you'll receive a post in the URL that you just set up.
+
+When you're done, it's time to set up the PagseguroCatcher params. If you're using Rails, the best way to do that is creating an initializer and set the following parameters:
+
+<pre>
+PagseguroCatcher.configure do |config|
+  config.token = "YOUR CONFIG TOKEN"
+  config.email = "you@yourcompany.com"
+end
+</pre>
+
+Every time that some transaction occurs, you'll receive a post in the URL that you set up on Pagseguro. When that post hits your app, you'll do this (again, assuming you're in a Rails application):
+
+<pre>
+if request.post?    
+  if params[:notificationCode] && params[:notificationType]
+    transaction = PagseguroCatcher::Checker.new(params[:notificationCode], params[:notificationType]).check
+    # your implementation logic goes here
+  end
+
+  render :nothing => true
+end
+</pre>
+
+The @transaction@ object contains the all the magic:
+
+<pre>
+transaction.date # => Thu, 10 Feb 2011 16:13:41 -0300
+transaction.payment_method_type # => Cartão de crédito
+</pre>
+
+You can also access others sections as well:
+
+<pre>
+transaction.sender.name # => "John Doe"
+transaction.amount.gross # => 199.99
+transaction.shipping.zip # => "01452002"
+</pre>
+
+Looping each item is easy too:
+
+<pre>
+transaction.each_item do |item|
+  puts item.description
+end
+
+Notebook Prata
+Notebook Rosa
+</pre>
 
 h2. TODO
 
-h3. 0.1.0
-
-* parse correctly all the sections of the return (items, sender, shipping are missing);
-* implement a @method_missing@ in @::Transaction::Base@ to delegate to @#[]@
-
 h3. 0.2.0
 
+* write the documentation
 * implement a nice way to rescue the @::Checker#check@ method, when the request isn't successfull or the return is invalid
 
 h3. 0.3.0:
