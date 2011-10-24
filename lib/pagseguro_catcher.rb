@@ -21,6 +21,4 @@ module PagseguroCatcher
     end
   end
   
-  
-  
 end

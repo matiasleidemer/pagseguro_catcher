@@ -61,9 +61,7 @@ module PagseguroCatcher
       def payment_method_code
         PAYMENT_CODES[self[:paymentMethod][:code].to_i]
       end
-      
-      #TODO - items, shipping
-      
+         
     end
     
   end
